@@ -68,3 +68,5 @@ gem "refile-mini_magick"
 # 以下の1行を追加
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+gem 'font-awesome-rails'

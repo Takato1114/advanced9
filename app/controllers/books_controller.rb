@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
   before_action :login_check, only: [:index, :edit, :show]
-  
+
   def show
     @book = Book.find(params[:id])
     @user = User.find(current_user.id)
-
+    @book_comment = BookComment.new
   end
 
   def index
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def login_check
     unless user_signed_in?
       redirect_to new_user_session_path
