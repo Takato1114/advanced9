@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'follows/:id' => 'users#following', as: 'follows'
   get 'followers/:id' => 'users#follower', as: 'followers'
 
+  get 'search' => 'search#search', as: 'search'
+
   root 'homes#top'
   get 'home/about' => 'homes#about', as: 'about'
 # endを追加
