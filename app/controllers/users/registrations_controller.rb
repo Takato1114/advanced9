@@ -11,12 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # @user = User.new(resource)
-    # if @user.save
     super
       ThanksMailer.complete_mail(@user).deliver unless resource.invalid?
-    # else
-      # render 'devise/registrations/new'
   end
   # end
 
