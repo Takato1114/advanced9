@@ -6,14 +6,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   # def new
-  #   @user = User.new
+  #   super
   # end
 
   # POST /resource
   def create
+    # @user = User.new(resource)
+    # if @user.save
     super
-    ThanksMailer.complete_mail(@user).deliver_now
+      ThanksMailer.complete_mail(@user).deliver unless resource.invalid?
+    # else
+      # render 'devise/registrations/new'
   end
+  # end
 
   # GET /resource/edit
   # def edit

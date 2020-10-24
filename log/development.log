@@ -41742,3 +41742,1046 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 92ms (Views: 75.5ms | ActiveRecord: 1.8ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200830060820)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "introduction" text, "profile_image_id" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830060820"]]
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20200830062142)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830062142_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830062142"]]
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20201018021807)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018021807_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018021807"]]
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBookComments (20201018035730)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "book_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018035730_create_book_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018035730"]]
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRelationships (20201019031601)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201019031601_create_relationships.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201019031601"]]
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToUsers (20201022031454)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "prefecture_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "postal_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "city" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "street" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201022031454"]]
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-24 02:22:09.172617"], ["updated_at", "2020-10-24 02:22:09.172617"]]
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 113.149.4.226 at 2020-10-24 02:22:19 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:8
+  Rendered layouts/_header.html.erb (8.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 290ms (Views: 287.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:22:21 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 71ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:22:34 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mlfadQ6s3p7P2w96XH+mYJNzOAmh/UKk2d80xTC2DtsLsw8Mp4duudWk4cj9Noqr/O1uduMFTrHWu0jtDNQ33w==", "user"=>{"name"=>"t", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:14
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendering thanks_mailer/complete_mail.text.erb within layouts/mailer
+  Rendered thanks_mailer/complete_mail.text.erb within layouts/mailer (0.3ms)
+ThanksMailer#complete_mail: processed outbound mail in 27.3ms
+Sent mail to tk.rails2test@gmail.com (1062.5ms)
+Date: Sat, 24 Oct 2020 02:22:34 +0000
+From: no-replay@gmail.com
+To: tk.rails2test@gmail.com
+Message-ID: <5f938feac006e_128f25a87084583@ip-172-31-58-115.mail>
+Subject: COMPLETE join your address
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear t.
+
+Thank you for registering!
+
+Completed 200 OK in 1482ms (Views: 65.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200830060820)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "introduction" text, "profile_image_id" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830060820"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20200830062142)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830062142_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830062142"]]
+  ↳ bin/rails:9
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20201018021807)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018021807_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018021807"]]
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBookComments (20201018035730)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "book_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018035730_create_book_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018035730"]]
+  ↳ bin/rails:9
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRelationships (20201019031601)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201019031601_create_relationships.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201019031601"]]
+  ↳ bin/rails:9
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToUsers (20201022031454)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "prefecture_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "postal_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "city" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "street" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201022031454"]]
+  ↳ bin/rails:9
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-24 02:25:17.800564"], ["updated_at", "2020-10-24 02:25:17.800564"]]
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 113.149.4.226 at 2020-10-24 02:25:22 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 288ms (Views: 286.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:25:24 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 71ms (Views: 55.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:25:32 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/users/registrations_controller.rb:14:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:26:45 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 321ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user_params' for #<Users::RegistrationsController:0x00007fadb857bbc0>
+Did you mean?  user_path):
+  
+app/controllers/users/registrations_controller.rb:14:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:28:04 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/users/registrations_controller.rb:14:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:29:53 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 240ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `registration_params' for #<Users::RegistrationsController:0x00007fada15eb248>
+Did you mean?  registration_path
+               registration_url):
+  
+app/controllers/users/registrations_controller.rb:14:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:39:32 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `resourse' for #<Users::RegistrationsController:0x00007fada1c2da20>
+Did you mean?  resource
+               resource=):
+  
+app/controllers/users/registrations_controller.rb:14:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:40:04 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tDIMmOsSywmiiSUIM8BXowqL5SszOqAEdtrxNCd8+zEl1tnhQjl7Lrj2y7qSiXtoZRWzVHHCrBF5vo0cGx7CNQ==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "a"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendering thanks_mailer/complete_mail.text.erb within layouts/mailer
+  Rendered thanks_mailer/complete_mail.text.erb within layouts/mailer (0.3ms)
+ThanksMailer#complete_mail: processed outbound mail in 17.4ms
+Sent mail to tk.rails2test@gmail.com (1179.3ms)
+Date: Sat, 24 Oct 2020 02:40:04 +0000
+From: no-replay@gmail.com
+To: tk.rails2test@gmail.com
+Message-ID: <5f939404a7e2b_131118defa4798a@ip-172-31-58-115.mail>
+Subject: COMPLETE join your address
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear a.
+
+Thank you for registering!
+
+Completed 200 OK in 1598ms (Views: 67.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:40:25 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nqvu7GWzA0v60Yi4CYkRXsoh/DHfxab5LkT2KzYQamAPTzuVzJizbOCuZgqowD2Vpb+qTp09quwhIIoDCnJTZA==", "user"=>{"name"=>"a", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "a"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendering thanks_mailer/complete_mail.text.erb within layouts/mailer
+  Rendered thanks_mailer/complete_mail.text.erb within layouts/mailer (0.3ms)
+ThanksMailer#complete_mail: processed outbound mail in 4.5ms
+Sent mail to tk.rails2test@gmail.com (856.4ms)
+Date: Sat, 24 Oct 2020 02:40:25 +0000
+From: no-replay@gmail.com
+To: tk.rails2test@gmail.com
+Message-ID: <5f939419c7647_131118dfbc079915@ip-172-31-58-115.mail>
+Subject: COMPLETE join your address
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear a.
+
+Thank you for registering!
+
+Completed 200 OK in 1223ms (Views: 52.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:41:25 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8eeFxn+bEFSvp6S+t2K4fBrSiDFkTLYf5Flzohtf/i1gA1C/1rCgc7XYSgwWK5S3dUzeTia0ugrrPQ+KJz3HKQ==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+No template found for Users::RegistrationsController#create, rendering head :no_content
+Completed 204 No Content in 61ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:41:29 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 52ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:41:43 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tjz9uE8KblJD0mazBq62AH1mwKX38CkyG69C3SLJnxQn2CjB5iHedVmtiAGn55rLEviW2rUIJScUyz71HqumEA==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+No template found for Users::RegistrationsController#create, rendering head :no_content
+Completed 204 No Content in 46ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:41:55 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 62ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:42:05 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JxNEsA/rvpljkt0Cn5CdbjM+mJelr81jg4oaZib1aUu295HJpsAOvnntM7A+2bGlXKDO6OdXwXaM7mZOGpdQTw==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+No template found for Users::RegistrationsController#create, rendering head :no_content
+Completed 204 No Content in 46ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 113.149.4.226 at 2020-10-24 02:42:15 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 289ms (Views: 286.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:42:16 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 56.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:42:26 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CtIy9a3O90Mgq0MBISp/2CyNulnrU7T5Gv2BA1xG3DObNueMBOVHZDrUrbOAY1MTQxPsJqmruOwVmf0rYCTlNw==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+No template found for Users::RegistrationsController#create, rendering head :no_content
+Completed 204 No Content in 47ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:46:22 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 83ms (Views: 68.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:46:36 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WFuKidySMRFfJSEyyICSFwBtPAcz2liUzxkn2TOnxsfJv1/wdbmBNkVaz4Bpyb7cb/NqeHEiVIHAfVvxD8X/ww==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"1740052", "prefecture_code"=>"東京都", "city"=>"板橋区蓮沼町", "street"=>"ttt", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+No template found for Users::RegistrationsController#create, rendering head :no_content
+Completed 204 No Content in 47ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 02:48:37 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (4.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 108ms (Views: 92.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:48:50 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/qDlnHIUoFYyOA7Ui5cy8+E8k8cGfErRLHSwZNj/+WlvRDDl2z8QcShH4GYq3h44jqLFuESERsQjEMxM5J3AbQ==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"1740052", "prefecture_code"=>"東京都", "city"=>"板橋区蓮沼町", "street"=>"t", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::MissingTemplate (Missing template device/registrations/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ec2-user/environment/advanced8/app/views"
+  * "/home/ec2-user/.rvm/gems/ruby-2.6.3/gems/devise-4.7.2/app/views"
+):
+  
+app/controllers/users/registrations_controller.rb:19:in `create'
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:49:47 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/qDlnHIUoFYyOA7Ui5cy8+E8k8cGfErRLHSwZNj/+WlvRDDl2z8QcShH4GYq3h44jqLFuESERsQjEMxM5J3AbQ==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"1740052", "prefecture_code"=>"東京都", "city"=>"板橋区蓮沼町", "street"=>"t", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 53.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:50:04 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3TSUQxSQxCGoSTnwUYzWPxpGqdLOtpICEFq8k6x6F9FM0EE6vbt0BrI210Lwxfr0ddj/rYxOnhcfPsC7kBgu1Q==", "user"=>{"name"=>"t", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"1740052", "prefecture_code"=>"東京都", "city"=>"板橋区蓮沼町", "street"=>"t", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered devise/shared/_links.html.erb (4.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (16.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 152ms (Views: 140.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 02:52:28 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3pcqAoiSKus80s3DmdfqcsPZzbrH3jeS/a4bKPSR7kVPc/97IbmazCatI3E4nsa5rEebxYUmO4fyymcAyPPXQQ==", "user"=>{"name"=>"t", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"1740052", "prefecture_code"=>"東京都", "city"=>"板橋区蓮沼町", "street"=>"t", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/users/registrations_controller.rb:15:in `create'
+Started GET "/" for 113.149.4.226 at 2020-10-24 03:28:09 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 292ms (Views: 290.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 03:28:11 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 57.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 03:28:22 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dUDSyY+sDPvXpyf3z0X0oL2bEqtu7NcgUeLOZ3YPtUrkpAewJoe83M3YyUVuDNhr0gVE1CwU2zVehrJPSm2MTg==", "user"=>{"name"=>"b", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "b"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "b"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+Completed 200 OK in 394ms (Views: 65.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 03:28:51 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W2mj/KNZE3Adi/vkP9UdVAEw7pwzU+68nRBrTWuCY+vKjXaFCnKjVwf0FVaenDGfbq6443Gr4qmSdBdlV+Ba7w==", "user"=>{"name"=>"bb", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "bb"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "tk.rails2test@gmail.com"], ["encrypted_password", "$2a$12$LyLRFvA.uZBD47cHKon8yux9G5rGZR0iH9UXOPY19UEyrVBmNDW2e"], ["name", "bb"], ["created_at", "2020-10-24 03:28:51.624874"], ["updated_at", "2020-10-24 03:28:51.624874"]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+Redirected to https://bdd86768ee2342678b245a0c336c5920.vfs.cloud9.us-east-1.amazonaws.com/users/1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "bb"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+  Rendering thanks_mailer/complete_mail.text.erb within layouts/mailer
+  Rendered thanks_mailer/complete_mail.text.erb within layouts/mailer (0.3ms)
+ThanksMailer#complete_mail: processed outbound mail in 18.2ms
+Sent mail to tk.rails2test@gmail.com (1331.2ms)
+Date: Sat, 24 Oct 2020 03:28:51 +0000
+From: no-replay@gmail.com
+To: tk.rails2test@gmail.com
+Message-ID: <5f939f73a3e48_1dd71da50b05543e@ip-172-31-58-115.mail>
+Subject: COMPLETE join your address
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear bb.
+
+Thank you for registering!
+
+Completed 302 Found in 1684ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/users/1" for 113.149.4.226 at 2020-10-24 03:28:53 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "relationships" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_profile.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "relationships" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_profile.html.erb:26
+  Rendered users/_profile.html.erb (8.1ms)
+  Rendered books/_form.html.erb (2.2ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 114ms (Views: 97.5ms | ActiveRecord: 1.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200830060820)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "introduction" text, "profile_image_id" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830060820"]]
+  ↳ bin/rails:9
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20200830062142)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830062142_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830062142"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20201018021807)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018021807_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018021807"]]
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBookComments (20201018035730)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "book_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018035730_create_book_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018035730"]]
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRelationships (20201019031601)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201019031601_create_relationships.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201019031601"]]
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToUsers (20201022031454)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "prefecture_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "postal_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "city" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "street" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201022031454"]]
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-24 03:29:17.936952"], ["updated_at", "2020-10-24 03:29:17.936952"]]
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20200830060820)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "introduction" text, "profile_image_id" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20200830060820_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830060820"]]
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20200830062142)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200830062142_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200830062142"]]
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20201018021807)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018021807_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018021807"]]
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBookComments (20201018035730)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "book_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "book_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201018035730_create_book_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201018035730"]]
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateRelationships (20201019031601)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201019031601_create_relationships.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201019031601"]]
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToUsers (20201022031454)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "prefecture_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "postal_code" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "city" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "street" varchar[0m
+  ↳ db/migrate/20201022031454_add_columns_to_users.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201022031454"]]
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-24 03:29:22.001397"], ["updated_at", "2020-10-24 03:29:22.001397"]]
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 113.149.4.226 at 2020-10-24 03:29:25 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:8
+  Rendered layouts/_header.html.erb (8.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 295ms (Views: 291.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_up" for 113.149.4.226 at 2020-10-24 03:29:28 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 03:29:36 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tJOBSLd6tlGLS7+QxxqPjA66esiU+JDehyVamqEzsQYld1QxHlEGdpE0USJmU6NHYSQst9YAnMuIQSaynVGIAg==", "user"=>{"name"=>"c", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+Completed 200 OK in 380ms (Views: 64.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 113.149.4.226 at 2020-10-24 03:29:52 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mq+cMZqAuWjI7oluPkBp7S5QG9FEaWrGrtbDqd72nE4LS0lIM6sJT9KRZ9yfCUUmQc5NrgaRZtOhsr+B4pSlSg==", "user"=>{"name"=>"ccc", "email"=>"tk.rails2test@gmail.com", "postal_code"=>"", "prefecture_code"=>"北海道", "city"=>"", "street"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :postal_code, :prefecture_code, :city, :street
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tk.rails2test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "ccc"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "tk.rails2test@gmail.com"], ["encrypted_password", "$2a$12$IUw3vD5cusM5tTSb9uJHS.YntFJmacIYqvgZbFk9USnfdH1DKveX."], ["name", "ccc"], ["created_at", "2020-10-24 03:29:52.685968"], ["updated_at", "2020-10-24 03:29:52.685968"]]
+  ↳ app/controllers/users/registrations_controller.rb:16
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:16
+Redirected to https://bdd86768ee2342678b245a0c336c5920.vfs.cloud9.us-east-1.amazonaws.com/users/1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "ccc"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:17
+  Rendering thanks_mailer/complete_mail.text.erb within layouts/mailer
+  Rendered thanks_mailer/complete_mail.text.erb within layouts/mailer (0.3ms)
+ThanksMailer#complete_mail: processed outbound mail in 17.4ms
+Sent mail to tk.rails2test@gmail.com (800.9ms)
+Date: Sat, 24 Oct 2020 03:29:52 +0000
+From: no-replay@gmail.com
+To: tk.rails2test@gmail.com
+Message-ID: <5f939fb0b184f_1e4b1a6a6c08775d@ip-172-31-58-115.mail>
+Subject: COMPLETE join your address
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear ccc.
+
+Thank you for registering!
+
+Completed 302 Found in 1153ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/users/1" for 113.149.4.226 at 2020-10-24 03:29:53 +0000
+Cannot render console from 113.149.4.226! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "relationships" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_profile.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "relationships" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_profile.html.erb:26
+  Rendered users/_profile.html.erb (7.7ms)
+  Rendered books/_form.html.erb (2.1ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:24
+  Rendered users/show.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 115ms (Views: 99.0ms | ActiveRecord: 1.9ms)
+
+
