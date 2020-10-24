@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # 順番を入れ替え
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+   }
   resources :users, only: [:show,:index,:edit,:update]
   resources :books do
     resource :favorite, only: [:create, :destroy]
