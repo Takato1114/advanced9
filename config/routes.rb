@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   # 順番を入れ替え
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
+  resources :chats, only: [:create]
+  resources :rooms, only: [:create, :show]
+
 
   post 'follow/:id' => 'relationships#create', as: 'follow'
   post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow'

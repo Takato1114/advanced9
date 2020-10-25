@@ -1,0 +1,21 @@
+<% if room.chats.present? %>
+  <table id ="chattable">
+    <tbody>
+      <% room.chats.each do |c| %>
+        <tr>
+          <td id ="chattd">
+            <% unless c.user_id == current_user.id %>
+              <%= c.body %>
+            <% else %>
+            <% end %>
+          </td>
+          <td id ="chattd">
+            <% if c.user_id == current_user.id %>
+              <%= c.body %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

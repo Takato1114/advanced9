@@ -36,8 +36,13 @@
 	</div>
 <% else %>
 	<% if current_user.following?(user) %>
-    	<%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: 'btn btn-primary' %>
+    	<%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: 'btn btn-primary' %><br>
   	<% else %>
-    	<%= link_to 'フォローする', follow_path(user.id), method: :POST, class: 'btn btn-success' %>
+    	<%= link_to 'フォローする', follow_path(user.id), method: :POST, class: 'btn btn-success' %><br>
  	<% end %>
+ 	<% if is_room == true %>
+ 		<%= link_to 'chatを始める', room_path(room_id, user_id: user.id) %>
+ 	<% else %>
+ 		<%= link_to 'chatを始める', rooms_path(user_id: user.id), method: :POST %>
+  <% end %>
 <% end %>

@@ -1,0 +1,14 @@
+<h1><%= @user.name %>さんとのチャット</h1>
+
+
+  <div class ="chat">
+  	<%= render 'chats/chat', room: @room %>
+  </div>
+
+
+<%= form_with model:@chat do |f| %>
+  <%= f.text_field :body, class:'textfield' %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :to_user_id, value: @user.id %>
+      <% f.submit %>
+<% end %>
