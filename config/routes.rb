@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
-  resources :chats, only: [:create]
-  resources :rooms, only: [:create, :show]
+  resources :chats, only: [:create, :show]
+  resources :rooms, only: [:create]
 
 
   post 'follow/:id' => 'relationships#create', as: 'follow'

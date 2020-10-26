@@ -41,7 +41,7 @@
     	<%= link_to 'フォローする', follow_path(user.id), method: :POST, class: 'btn btn-success' %><br>
  	<% end %>
  	<% if is_room == true %>
- 		<%= link_to 'chatを始める', room_path(room_id, user_id: user.id) %>
+ 		<%= link_to 'chatを始める', chat_path(room_id, user_id: user.id) %>
  	<% else %>
  		<%= link_to 'chatを始める', rooms_path(user_id: user.id), method: :POST %>
   <% end %>
